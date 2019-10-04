@@ -11,9 +11,11 @@ services:
             - /home/app/node_modules
         working_dir: /home/app
         environment:
-            NODE_ENV: ${NODE_ENV}
-            PORT: ${PORT}
+            NODE_ENV: "${NODE_ENV}"
+            PORT: "${PORT}"
+            API_URL: ${API_URL}
             HOST: "0.0.0.0"
+            BASE_HREF: "/"
         ports:
             - "${PORT}:${PORT}"
         tty: True
