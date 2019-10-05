@@ -40,5 +40,7 @@ services:
             # mount local volume as nginx document root
             # - ./html:/usr/share/nginx/html:ro
         ports:
-            - ${NGINX_PORT}:80
+            # intentionaly setting internal port to NGINX_PORT as well
+            # NOTE: nginx must listen to this port explicitelly in conf.d/...
+            - ${NGINX_PORT}:${NGINX_PORT}
         command: [nginx, '-g', 'daemon off;']
